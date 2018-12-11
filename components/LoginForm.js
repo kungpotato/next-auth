@@ -1,4 +1,4 @@
-import loginUser from '../lib/auth'
+import {loginUser} from '../lib/auth'
 
 class LoginForm extends React.Component {
 
