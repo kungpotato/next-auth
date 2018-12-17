@@ -1,15 +1,27 @@
 import Link from 'next/link'
 
-const Layout = ({title, children}) => (
+const Layout = ({title, children, auth}) => {
+
+    const {user = {}} = auth || {}
+    
+    return (
     <div className="root">
         <nav className="navbar">
-            <span>Welcome, <strong>Guest</strong></span>
+            <span>Welcome, <strong>{user.name || "Guest"}</strong></span>
 
             <div>
                 <Link href="/"><a>Home</a></Link>
-                <Link href="/profile"><a>Profile</a></Link>
-                <button>Logout</button>
-                <Link href="/login"><a>Login</a></Link>
+                {user.email ? (
+                    // Auth Navigation
+                    <React.Fragment>
+                        <Link href="/profile"><a>Profile</a></Link>
+                        <button>Logout</button>
+                    </React.Fragment>
+                    ) : (
+                        // unauth Navigation
+                    <Link href="/login"><a>Login</a></Link>
+                    )
+                }
             </div>
         </nav>
 
@@ -41,6 +53,6 @@ const Layout = ({title, children}) => (
             }
         `}</style>
     </div>
-)
+)}
 
 export default Layout
