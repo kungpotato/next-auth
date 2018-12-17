@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "deploy": "now --public"
   },
   "keywords": [],
   "author": "",
