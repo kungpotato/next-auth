@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import {logOutUer} from '../lib/auth'
 
 const Layout = ({title, children, auth}) => {
 
@@ -15,7 +16,7 @@ const Layout = ({title, children, auth}) => {
                     // Auth Navigation
                     <React.Fragment>
                         <Link href="/profile"><a>Profile</a></Link>
-                        <button>Logout</button>
+                        <button onClick={logOutUer}>Logout</button>
                     </React.Fragment>
                     ) : (
                         // unauth Navigation

@@ -1,4 +1,4 @@
-import {getUserProfile} from "../lib/auth"
+import {getUserProfile, authInitialProps} from "../lib/auth"
 import Layout from '../components/Layout'
 
 export default class Profile extends React.Component {
@@ -13,7 +13,7 @@ export default class Profile extends React.Component {
     
     render () {
         return (
-            <Layout title="Profile">
+            <Layout title="Profile" {...this.props}>
                 <pre>
                     {JSON.stringify(this.state.user, null, 2)}
                 </pre>
@@ -21,3 +21,5 @@ export default class Profile extends React.Component {
         )
     }
 }
+
+Profile.getInitialProps = authInitialProps()
